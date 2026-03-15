@@ -103,6 +103,7 @@
     /* 以下代表白色透明度为0.3 */
     background: rgba(255,255,255,.3);
 }
+
 #web_bg {
 background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
 }
@@ -131,10 +132,52 @@ body::before {
 }
 
 /* 文章卡片透明度 */
-#recent-posts > .recent-post-item {
-    background: rgba(85, 181, 213, 0.9) !important;  /* 卡片背景透明度 */
-    backdrop-filter: blur(3px);
-    border-radius: 12px;
+/* 第一步：定义渐变动画（对应你第二个截图的 Gradient 动画） */
+@-webkit-keyframes Gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+@keyframes Gradient {  /* 兼容非webkit浏览器（比如Firefox） */
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+/* 第二步：修改文章卡片样式，添加渐变+动画 */
+#recent-posts>.recent-post-item {
+  /* 渐变背景（替换原有纯色），加透明度 */
+  background: linear-gradient(-45deg, #e0bcffdd, #ffd3f0dd, #d5bdffdd, #ffdafedd) !important;
+  /* 渐变背景尺寸（让动画有移动空间） */
+  background-size: 400% 400%;
+  /* 绑定上面定义的 Gradient 动画，15秒循环播放，匀速 */
+  -webkit-animation: Gradient 15s ease infinite;
+  animation: Gradient 15s ease infinite;
+  /* 保留原有毛玻璃和圆角 */
+  backdrop-filter: blur(3px);
+  border-radius: 12px;
+}
+
+/* 暗色主题适配（可选，保持深色背景+动效） */
+[data-theme=dark] #recent-posts>.recent-post-item {
+  background: linear-gradient(-45deg, rgba(45, 10, 61, 0.8), rgba(65, 20, 81, 0.8), rgba(55, 15, 71, 0.8)) !important;
+  background-size: 400% 400%;
+  -webkit-animation: Gradient 15s ease infinite;
+  animation: Gradient 15s ease infinite;
+  backdrop-filter: blur(3px);
+  border-radius: 12px;
 }
 
 /* 侧边栏卡片透明度 */
@@ -144,12 +187,51 @@ body::before {
     border-radius: 12px;
 }
 
+
+/*分类页面*/
+.layout
+>#page {
+  background: linear-gradient(-45deg, #e0bcffdd, #ffd3f0dd, #d5bdffdd, #ffdafedd) ;
+}
+[data-theme=dark] .layout>#page {
+  background: rgba(45, 10, 61, 0.7) !important;
+}
+/*归档页面*/
+.layout
+>#archive {
+  background: linear-gradient(-45deg, #e0bcffdd, #ffd3f0dd, #d5bdffdd, #ffdafedd) !important;
+}
+[data-theme=dark] .layout>#archive {
+  background: rgba(45, 10, 61, 0.7) !important;
+}
+/*分类点进去的页面*/
+.layout>#category {
+  background: linear-gradient(-45deg, #e0bcffdd, #ffd3f0dd, #d5bdffdd, #ffdafedd) !important;
+}
+[data-theme=dark] .layout>#category {
+  background: rgba(45, 10, 61, 0.7) !important;
+}
+/*标签点进去的页面*/
+.layout
+>#tag {
+  background: linear-gradient(-45deg, #e0bcffdd, #ffd3f0dd, #d5bdffdd, #ffdafedd) !important;
+}
+[data-theme=dark] .layout>#tag {
+  background: rgba(45, 10, 61, 0.7) !important;
+}
+
+.layout.hide
+-aside {
+ max-width:
+ 1600px;
+}
 /* 文章页卡片透明度 */
 #post {
-    background: rgba(255, 255, 255, 0.142) !important;
+    background: rgba(31, 79, 130, 0.326) !important;
     backdrop-filter: blur(3px);
     border-radius: 12px;
 }
+
 
 /* 调整头像样式 */
 .avatar-img {
@@ -177,4 +259,11 @@ body::before {
 /* 侧边栏统计数字变白 */
 #aside-content .card-widget .item-count {
     color: #418acacf !important;  /* 金色数字 */
+}
+/*主页文章列表页面卡片*/
+#recent-posts>.recent-post-items .recent-post-item{
+  background: linear-gradient(-45deg, #468ed5dd, #4bafe8dd, #d5bdffdd, #ffdafedd) !important;
+}
+[data-theme=dark] #recent-posts>.recent-post-items .recent-post-item{
+  background: rgba(45, 10, 61, 0.7) !important;
 }

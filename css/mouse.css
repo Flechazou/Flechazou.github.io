@@ -1,0 +1,9 @@
+/* 默认指针 */
+body {
+  cursor: url('./mouse/normal.cur'), auto !important;
+}
+
+/* 链接/可点击元素指针 */
+a, button, img, [role="button"] {
+  cursor: url('./mouse/normal1.cur'), pointer !important;
+}
