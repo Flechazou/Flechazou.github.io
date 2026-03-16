@@ -243,7 +243,7 @@ body::before {
 /* 侧边栏卡片变暗 */
 #aside-content .card-widget {
     background: rgba(0, 37, 60, 0.411) !important;  /* 黑色半透明 */
-    color: #fff !important;  /* 文字变白 */
+    color: #74cbd4 !important;  /* 文字变白 */
 }
 
 /* 侧边栏标题文字变白 */
