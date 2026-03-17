@@ -267,3 +267,21 @@ body::before {
 [data-theme=dark] #recent-posts>.recent-post-items .recent-post-item{
   background: rgba(45, 10, 61, 0.7) !important;
 }
+/* 修改 Twikoo 评论区正文文字颜色 */
+.twikoo .tk-content {
+  color: #ca5ca7 !important;
+}
+/* 修改评论区昵称、时间等辅助文字颜色 */
+.twikoo .tk-nick,
+.twikoo .tk-time {
+  color: #1E90FF !important;
+}
+.post-content p,
+.post-content li,
+.post-content blockquote {
+  color: #e06db4 !important;
+}
+.post-content h1,
+.post-content h2 {
+  color: #469be0 !important;
+}
